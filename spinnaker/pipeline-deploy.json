@@ -77,9 +77,9 @@
       "defaultArtifact": {
         "kind": "default.docker",
         "name": "gcr.io/PROJECT/sample-app",
-        "reference": "gcr.io/PROJECT/sample-app:v1.0.1",
+        "reference": "gcr.io/PROJECT/sample-app:v1.0.*",
         "type": "docker/image",
-        "version": "v1.0.1"
+        "version": "v1.0.*"
       },
       "id": "80c8982d-f5df-4d31-b828-5d537d8f67aa",
       "matchArtifact": {
