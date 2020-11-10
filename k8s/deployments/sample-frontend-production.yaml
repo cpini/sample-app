@@ -4,6 +4,9 @@ metadata:
   name: sample-frontend-production
 spec:
   replicas: 4
+  selector:
+    matchLabels:
+      service: sample-frontend-production
   template:
     metadata:
       name: frontend
