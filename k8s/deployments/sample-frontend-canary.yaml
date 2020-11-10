@@ -7,6 +7,8 @@ spec:
   selector:
     matchLabels:
       app: sample
+      role: frontend
+      env: canary
   template:
     metadata:
       name: frontend
