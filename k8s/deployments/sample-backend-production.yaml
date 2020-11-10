@@ -6,7 +6,7 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      service: sample-backend-production
+      app: sample
   template:
     metadata:
       name: backend

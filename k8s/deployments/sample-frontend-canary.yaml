@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      service: sample-frontend-canary
+      app: sample
   template:
     metadata:
       name: frontend
