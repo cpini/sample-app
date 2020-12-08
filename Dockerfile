@@ -10,5 +10,5 @@ COPY ./glide* $SOURCE/
 RUN cd $SOURCE && glide install
 COPY . $SOURCE
 WORKDIR $SOURCE/cmd/gke-info
-RUN go build -o gke-info
-CMD ./gke-info
+#RUN go build -o gke-info
+#CMD ./gke-info
