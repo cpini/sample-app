@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
-  '--build-arg=TAG_NAME_ARG=$TAG_NAME' 
+  '--build-arg=TAG_NAME_ARG=$TAG_NAME',
   '--tag=gcr.io/$PROJECT_ID/sample-app:$TAG_NAME', 
   '.']
 - name: 'gcr.io/cloud-builders/docker'
