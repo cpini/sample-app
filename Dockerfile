@@ -1,4 +1,6 @@
-FROM golang:1.8 
+FROM golang:1.8
+ARG TAG_NAME_ARG
+ENV BUILD_VER=$TAG_NAME_ARG 
 ENV SOURCE=/go/src/github.com/viglesiasce/gke-info \
     GLIDE_VERSION=v0.12.3
 RUN wget -q https://github.com/Masterminds/glide/releases/download/${GLIDE_VERSION}/glide-${GLIDE_VERSION}-linux-amd64.tar.gz \
