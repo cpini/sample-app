@@ -5,6 +5,5 @@ LABEL maintainer="Cristian Pini"
 ENV TZ=Europe/London
 ENV BUILD_VERSION="${TAG_NAME_ARG}"
 RUN apk update; \
-apk upgrade; \
-COPY --chown=www-data . /var/www/html
+apk upgrade; 
 USER www-data
