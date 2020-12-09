@@ -1,6 +1,6 @@
 package main
 
-// comment
+//comment
 import (
   "os"
   "fmt"
