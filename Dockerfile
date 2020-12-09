@@ -1,10 +1,14 @@
-ARG PHP_VERSION="7.4.13"
-FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
-LABEL maintainer="Cristian Pini"
-ARG TAG_NAME_ARG="latest"
-ENV TZ=Europe/London
-ENV BUILD_CP_VERSION=${TAG_NAME_ARG}
-ENV PHP_CP_VAR=${PHP_VERSION:+${PHP_VERSION}}
-RUN apk update; \
-apk upgrade; 
-USER www-data
+FROM golang:1.8
+ARG TAG_NAME_ARG
+ENV BUILD_VER=$TAG_NAME_ARG 
+ENV SOURCE=/go/src/github.com/viglesiasce/gke-info \
+    GLIDE_VERSION=v0.12.3
+RUN wget -q https://github.com/Masterminds/glide/releases/download/${GLIDE_VERSION}/glide-${GLIDE_VERSION}-linux-amd64.tar.gz \
+    && tar zxfv glide-${GLIDE_VERSION}-linux-amd64.tar.gz \
+    && mv linux-amd64/glide /usr/local/bin
+COPY ./glide* $SOURCE/
+RUN cd $SOURCE && glide install
+COPY . $SOURCE
+WORKDIR $SOURCE/cmd/gke-info
+RUN go build -o gke-info
+CMD ./gke-info
